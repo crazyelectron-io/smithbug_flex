@@ -1,0 +1,846 @@
+Hex start address for listing?
+Symbol table file 6800SB.LBL contains 4 labels.
+Addr = 4800 Lab 0 = START   
+Addr = 4E31 Lab 1 = .DATA   
+Addr = 4FFF Lab 2 = .ENDDATA
+Addr = 5000 Lab 3 = .QUIT   
+
+                              ORG       $4800
+
+4800  8E A0 42      START     LDS     #$A042        ; Immediate
+4803  BF A0 08                STS      $A008        ; Extended
+4806  7F A0 0C                CLR      $A00C        ; Extended
+4809  CE 49 1F                LDX     #$491F        ; Immediate
+480C  FF A0 12                STX      $A012        ; Extended
+480F  FF A0 06                STX      $A006        ; Extended
+4812  86 03                   LDAA    #$0003        ; Immediate
+4814  B7 80 04                STAA     $8004        ; Extended
+4817  86 15                   LDAA    #$0015        ; Immediate
+4819  B7 A0 16                STAA     $A016        ; Extended
+481C  B6 A0 16                LDAA     $A016        ; Extended
+481F  B7 80 04                STAA     $8004        ; Extended
+4822  8E A0 60                LDS     #$A060        ; Immediate
+4825  7F A0 0F                CLR      $A00F        ; Extended
+4828  7F A0 6B                CLR      $A06B        ; Extended
+482B  7F A0 6C                CLR      $A06C        ; Extended
+482E  CE 4F 67                LDX     #$4F67        ; Immediate
+4831  8D 61                   BSR      4894         ; Relative, to (4894)
+4833  8D 59                   BSR      488E         ; Relative, to (488E)
+4835  16                      TAB                   ; Immediate
+4836  BD 48 E9                JSR      $48E9        ; Extended
+4839  CE 4F BC                LDX     #$4FBC        ; Immediate
+483C  E1 00                   CMPB     $0000        ; Indexed
+483E  27 0B                   BEQ      484B         ; Relative, to (484B)
+4840  08                      INX                   ; Immediate
+4841  08                      INX                   ; Immediate
+4842  08                      INX                   ; Immediate
+4843  8C 4F F8                CPX     #$4FF8        ; Immediate
+4846  26 F4                   BNE      483C         ; Relative, to (483C)
+4848  7E 4C 3D                JMP      $4C3D        ; Extended
+484B  EE 01                   LDX      $0001        ; Indexed
+484D  6E 00                   JMP      $0000        ; Indexed
+484F  FE A0 00                LDX      $A000        ; Extended
+4852  6E 00                   JMP      $0000        ; Indexed
+4854  FE A0 06                LDX      $A006        ; Extended
+4857  6E 00                   JMP      $0000        ; Indexed
+4859  FE A0 12                LDX      $A012        ; Extended
+485C  6E 00                   JMP      $0000        ; Indexed
+485E  86 3F                   LDAA    #$003F        ; Immediate
+4860  8D 29                   BSR      488B         ; Relative, to (488B)
+4862  20 B8                   BRA      481C         ; Relative, to (481C)
+4864  8D 0C                   BSR      4872         ; Relative, to (4872)
+4866  B7 A0 0D                STAA     $A00D        ; Extended
+4869  8D 07                   BSR      4872         ; Relative, to (4872)
+486B  B7 A0 0E                STAA     $A00E        ; Extended
+486E  FE A0 0D                LDX      $A00D        ; Extended
+4871  39                      RTS                   ; Immediate
+
+4872  8D 53                   BSR      48C7         ; Relative, to (48C7)
+4874  48                      ASLA                  ; Immediate
+4875  48                      ASLA                  ; Immediate
+4876  48                      ASLA                  ; Immediate
+4877  48                      ASLA                  ; Immediate
+4878  16                      TAB                   ; Immediate
+4879  8D 4C                   BSR      48C7         ; Relative, to (48C7)
+487B  1B                      ABA                   ; Immediate
+487C  39                      RTS                   ; Immediate
+
+487D  44                      LSRA                  ; Immediate
+487E  44                      LSRA                  ; Immediate
+487F  44                      LSRA                  ; Immediate
+4880  44                      LSRA                  ; Immediate
+4881  84 0F                   ANDA    #$000F        ; Immediate
+4883  8B 30                   ADDA    #$0030        ; Immediate
+4885  81 39                   CMPA    #$0039        ; Immediate
+4887  23 02                   BLS      488B         ; Relative, to (488B)
+4889  8B 07                   ADDA    #$0007        ; Immediate
+488B  7E 49 FE                JMP      $49FE        ; Extended
+488E  7E 49 E7                JMP      $49E7        ; Extended
+4891  01                      NOP                   ; Immediate
+4892  01                      NOP                   ; Immediate
+4893  01                      NOP                   ; Immediate
+4894  7E E0 7E                JMP      $E07E        ; Extended
+4897  01                      NOP                   ; Immediate
+4898  01                      NOP                   ; Immediate
+4899  01                      NOP                   ; Immediate
+489A  01                      NOP                   ; Immediate
+489B  8D C7                   BSR      4864         ; Relative, to (4864)
+489D  CE 4F 67                LDX     #$4F67        ; Immediate
+48A0  A7 B4                   STAA     $00B4        ; Indexed
+48A2  FD                      byte                  ; Extended
+48A3  FE D3 97                LDX      $D397        ; Extended
+48A6  CB 93                   ADDB    #$0093        ; Immediate
+48A8  ED                      byte                  ; Indexed
+48A9  3E                      WAI                   ; Immediate
+48AA  B6 FD 11                LDAA     $FD11        ; Extended
+48AD  BF 03 93                STS      $0393        ; Extended
+48B0  5E                      byte                  ; Immediate
+48B1  26 07                   BNE      48BA         ; Relative, to (48BA)
+48B3  09                      DEX                   ; Immediate
+48B4  09                      DEX                   ; Immediate
+48B5  FF A0 0D                STX      $A00D        ; Extended
+48B8  20 E3                   BRA      489D         ; Relative, to (489D)
+48BA  8D 0D                   BSR      48C9         ; Relative, to (48C9)
+48BC  8D B6                   BSR      4874         ; Relative, to (4874)
+48BE  09                      DEX                   ; Immediate
+48BF  A7 00                   STAA     $0000        ; Indexed
+48C1  A1 00                   CMPA     $0000        ; Indexed
+48C3  27 D8                   BEQ      489D         ; Relative, to (489D)
+48C5  20 97                   BRA      485E         ; Relative, to (485E)
+48C7  8D C5                   BSR      488E         ; Relative, to (488E)
+48C9  80 30                   SUBA    #$0030        ; Immediate
+48CB  2B 95                   BMI      4862         ; Relative, to (4862)
+48CD  81 09                   CMPA    #$0009        ; Immediate
+48CF  2F 0A                   BLE      48DB         ; Relative, to (48DB)
+48D1  81 11                   CMPA    #$0011        ; Immediate
+48D3  2B 8D                   BMI      4862         ; Relative, to (4862)
+48D5  81 16                   CMPA    #$0016        ; Immediate
+48D7  2E 89                   BGT      4862         ; Relative, to (4862)
+48D9  80 07                   SUBA    #$0007        ; Immediate
+48DB  39                      RTS                   ; Immediate
+
+48DC  A6 00                   LDAA     $0000        ; Indexed
+48DE  8D 9D                   BSR      487D         ; Relative, to (487D)
+48E0  A6 00                   LDAA     $0000        ; Indexed
+48E2  08                      INX                   ; Immediate
+48E3  20 9C                   BRA      4881         ; Relative, to (4881)
+48E5  8D F5                   BSR      48DC         ; Relative, to (48DC)
+48E7  8D F3                   BSR      48DC         ; Relative, to (48DC)
+48E9  86 20                   LDAA    #$0020        ; Immediate
+48EB  20 9E                   BRA      488B         ; Relative, to (488B)
+48ED  BD 4A 5D                JSR      $4A5D        ; Extended
+48F0  FF A0 66                STX      $A066        ; Extended
+48F3  A6 00                   LDAA     $0000        ; Indexed
+48F5  B7 A0 6C                STAA     $A06C        ; Extended
+48F8  27 CB                   BEQ      48C5         ; Relative, to (48C5)
+48FA  86 3F                   LDAA    #$003F        ; Immediate
+48FC  A7 00                   STAA     $0000        ; Indexed
+48FE  BD 4A 5D                JSR      $4A5D        ; Extended
+4901  FF A0 63                STX      $A063        ; Extended
+4904  A6 00                   LDAA     $0000        ; Indexed
+4906  B7 A0 6B                STAA     $A06B        ; Extended
+4909  27 BA                   BEQ      48C5         ; Relative, to (48C5)
+490B  86 3F                   LDAA    #$003F        ; Immediate
+490D  A7 00                   STAA     $0000        ; Indexed
+490F  BD 4A C0                JSR      $4AC0        ; Extended
+4912  BE A0 08                LDX      $A008        ; Extended
+4915  3B                      RTI                   ; Immediate
+
+4916  CE A0 0D                LDX     #$A00D        ; Immediate
+4919  8D CA                   BSR      48E5         ; Relative, to (48E5)
+491B  FE A0 0D                LDX      $A00D        ; Extended
+491E  39                      RTS                   ; Immediate
+
+491F  BF A0 08                STS      $A008        ; Extended
+4922  30                      TSX                   ; Immediate
+4923  6D 06                   TST      $0006        ; Indexed
+4925  26 02                   BNE      4929         ; Relative, to (4929)
+4927  6A 05                   DEC      $0005        ; Indexed
+4929  6A 06                   DEC      $0006        ; Indexed
+492B  8E A0 60                LDS     #$A060        ; Immediate
+492E  7D A0 0F                TST      $A00F        ; Extended
+4931  27 18                   BEQ      494B         ; Relative, to (494B)
+4933  FE A0 66                LDX      $A066        ; Extended
+4936  B6 A0 61                LDAA     $A061        ; Extended
+4939  A7 00                   STAA     $0000        ; Indexed
+493B  7D A0 4D                TST      $A04D        ; Extended
+493E  27 08                   BEQ      4948         ; Relative, to (4948)
+4940  FE A0 68                LDX      $A068        ; Extended
+4943  B6 A0 6A                LDAA     $A06A        ; Extended
+4946  A7 00                   STAA     $0000        ; Indexed
+4948  7E 4A E0                JMP      $4AE0        ; Extended
+494B  FE A0 08                LDX      $A008        ; Extended
+494E  86 06                   LDAA    #$0006        ; Immediate
+4950  B7 A0 6D                STAA     $A06D        ; Extended
+4953  E6 01                   LDAB     $0001        ; Indexed
+4955  58                      ASLB                  ; Immediate
+4956  58                      ASLB                  ; Immediate
+4957  CE 4F 7E                LDX     #$4F7E        ; Immediate
+495A  86 2D                   LDAA    #$002D        ; Immediate
+495C  58                      ASLB                  ; Immediate
+495D  24 02                   BCC      4961         ; Relative, to (4961)
+495F  A6 00                   LDAA     $0000        ; Indexed
+4961  BD 49 FE                JSR      $49FE        ; Extended
+4964  08                      INX                   ; Immediate
+4965  7A A0 6D                DEC      $A06D        ; Extended
+4968  26 F0                   BNE      495A         ; Relative, to (495A)
+496A  CE 4F 6D                LDX     #$4F6D        ; Immediate
+496D  8D 5A                   BSR      49C9         ; Relative, to (49C9)
+496F  FE A0 08                LDX      $A008        ; Extended
+4972  08                      INX                   ; Immediate
+4973  08                      INX                   ; Immediate
+4974  BD 48 E7                JSR      $48E7        ; Extended
+4977  FF A0 14                STX      $A014        ; Extended
+497A  CE 4F 71                LDX     #$4F71        ; Immediate
+497D  8D 4A                   BSR      49C9         ; Relative, to (49C9)
+497F  FE A0 14                LDX      $A014        ; Extended
+4982  BD 48 E7                JSR      $48E7        ; Extended
+4985  FF A0 14                STX      $A014        ; Extended
+4988  CE 4F 74                LDX     #$4F74        ; Immediate
+498B  8D 3C                   BSR      49C9         ; Relative, to (49C9)
+498D  FE A0 14                LDX      $A014        ; Extended
+4990  8D 52                   BSR      49E4         ; Relative, to (49E4)
+4992  FF A0 14                STX      $A014        ; Extended
+4995  7D A0 0F                TST      $A00F        ; Extended
+4998  26 0A                   BNE      49A4         ; Relative, to (49A4)
+499A  CE 4F 7A                LDX     #$4F7A        ; Immediate
+499D  8D 2A                   BSR      49C9         ; Relative, to (49C9)
+499F  FE A0 14                LDX      $A014        ; Extended
+49A2  8D 40                   BSR      49E4         ; Relative, to (49E4)
+49A4  CE 4F 77                LDX     #$4F77        ; Immediate
+49A7  8D 20                   BSR      49C9         ; Relative, to (49C9)
+49A9  CE A0 08                LDX     #$A008        ; Immediate
+49AC  7D A0 0F                TST      $A00F        ; Extended
+49AF  26 22                   BNE      49D3         ; Relative, to (49D3)
+49B1  8D 31                   BSR      49E4         ; Relative, to (49E4)
+49B3  B6 A0 6B                LDAA     $A06B        ; Extended
+49B6  27 0F                   BEQ      49C7         ; Relative, to (49C7)
+49B8  FE A0 63                LDX      $A063        ; Extended
+49BB  A7 00                   STAA     $0000        ; Indexed
+49BD  B6 A0 6C                LDAA     $A06C        ; Extended
+49C0  27 05                   BEQ      49C7         ; Relative, to (49C7)
+49C2  FE A0 66                LDX      $A066        ; Extended
+49C5  A7 00                   STAA     $0000        ; Indexed
+49C7  20 33                   BRA      49FC         ; Relative, to (49FC)
+49C9  7E 48 94                JMP      $4894        ; Extended
+49CC  5F                      CLRB                  ; Immediate
+49CD  50                      NEGB                  ; Immediate
+49CE  F7 A0 0C                STAB     $A00C        ; Extended
+49D1  20 29                   BRA      49FC         ; Relative, to (49FC)
+49D3  E6 00                   LDAB     $0000        ; Indexed
+49D5  A6 01                   LDAA     $0001        ; Indexed
+49D7  8B 07                   ADDA    #$0007        ; Immediate
+49D9  C9 00                   ADCB    #$0000        ; Immediate
+49DB  F7 A0 14                STAB     $A014        ; Extended
+49DE  B7 A0 15                STAA     $A015        ; Extended
+49E1  CE A0 14                LDX     #$A014        ; Immediate
+49E4  7E 48 E5                JMP      $48E5        ; Extended
+49E7  B6 80 04                LDAA     $8004        ; Extended
+49EA  47                      ASRA                  ; Immediate
+49EB  24 FA                   BCC      49E7         ; Relative, to (49E7)
+49ED  B6 80 05                LDAA     $8005        ; Extended
+49F0  84 7F                   ANDA    #$007F        ; Immediate
+49F2  81 7F                   CMPA    #$007F        ; Immediate
+49F4  27 F1                   BEQ      49E7         ; Relative, to (49E7)
+49F6  7D A0 0C                TST      $A00C        ; Extended
+49F9  2F 03                   BLE      49FE         ; Relative, to (49FE)
+49FB  39                      RTS                   ; Immediate
+
+49FC  20 42                   BRA      4A40         ; Relative, to (4A40)
+49FE  7D A0 0C                TST      $A00C        ; Extended
+4A01  2C 03                   BGE      4A06         ; Relative, to (4A06)
+4A03  7E A0 4A                JMP      $A04A        ; Extended
+4A06  37                      PSHB                  ; Immediate
+4A07  F6 80 04                LDAB     $8004        ; Extended
+4A0A  57                      ASRB                  ; Immediate
+4A0B  57                      ASRB                  ; Immediate
+4A0C  24 F9                   BCC      4A07         ; Relative, to (4A07)
+4A0E  B7 80 05                STAA     $8005        ; Extended
+4A11  33                      PULB                  ; Immediate
+4A12  39                      RTS                   ; Immediate
+
+4A13  CE 4F AC                LDX     #$4FAC        ; Immediate
+4A16  8D 32                   BSR      4A4A         ; Relative, to (4A4A)
+4A18  8E A0 42                LDS     #$A042        ; Immediate
+4A1B  6E 00                   JMP      $0000        ; Indexed
+4A1D  8D 23                   BSR      4A42         ; Relative, to (4A42)
+4A1F  08                      INX                   ; Immediate
+4A20  09                      DEX                   ; Immediate
+4A21  8D C4                   BSR      49E7         ; Relative, to (49E7)
+4A23  81 08                   CMPA    #$0008        ; Immediate
+4A25  27 F9                   BEQ      4A20         ; Relative, to (4A20)
+4A27  A7 00                   STAA     $0000        ; Indexed
+4A29  81 04                   CMPA    #$0004        ; Immediate
+4A2B  27 60                   BEQ      4A8D         ; Relative, to (4A8D)
+4A2D  08                      INX                   ; Immediate
+4A2E  20 F1                   BRA      4A21         ; Relative, to (4A21)
+4A30  8D 1E                   BSR      4A50         ; Relative, to (4A50)
+4A32  8D 2E                   BSR      4A62         ; Relative, to (4A62)
+4A34  FE A0 02                LDX      $A002        ; Extended
+4A37  09                      DEX                   ; Immediate
+4A38  08                      INX                   ; Immediate
+4A39  A7 00                   STAA     $0000        ; Indexed
+4A3B  BC A0 04                CPX      $A004        ; Extended
+4A3E  26 F8                   BNE      4A38         ; Relative, to (4A38)
+4A40  20 4B                   BRA      4A8D         ; Relative, to (4A8D)
+4A42  CE 4F 92                LDX     #$4F92        ; Immediate
+4A45  20 03                   BRA      4A4A         ; Relative, to (4A4A)
+4A47  CE 4F 9F                LDX     #$4F9F        ; Immediate
+4A4A  BD 48 94                JSR      $4894        ; Extended
+4A4D  7E 48 64                JMP      $4864        ; Extended
+4A50  8D F0                   BSR      4A42         ; Relative, to (4A42)
+4A52  FF A0 02                STX      $A002        ; Extended
+4A55  8D F0                   BSR      4A47         ; Relative, to (4A47)
+4A57  FF A0 04                STX      $A004        ; Extended
+4A5A  7E 4A C0                JMP      $4AC0        ; Extended
+4A5D  CE 4F 88                LDX     #$4F88        ; Immediate
+4A60  20 E8                   BRA      4A4A         ; Relative, to (4A4A)
+4A62  CE 4F B5                LDX     #$4FB5        ; Immediate
+4A65  BD 48 94                JSR      $4894        ; Extended
+4A68  7E 48 72                JMP      $4872        ; Extended
+4A6B  8D E3                   BSR      4A50         ; Relative, to (4A50)
+4A6D  CE 4F AC                LDX     #$4FAC        ; Immediate
+4A70  8D D8                   BSR      4A4A         ; Relative, to (4A4A)
+4A72  FE A0 02                LDX      $A002        ; Extended
+4A75  09                      DEX                   ; Immediate
+4A76  08                      INX                   ; Immediate
+4A77  A6 00                   LDAA     $0000        ; Indexed
+4A79  FF A0 02                STX      $A002        ; Extended
+4A7C  FE A0 0D                LDX      $A00D        ; Extended
+4A7F  A7 00                   STAA     $0000        ; Indexed
+4A81  08                      INX                   ; Immediate
+4A82  FF A0 0D                STX      $A00D        ; Extended
+4A85  FE A0 02                LDX      $A002        ; Extended
+4A88  BC A0 04                CPX      $A004        ; Extended
+4A8B  26 E9                   BNE      4A76         ; Relative, to (4A76)
+4A8D  7E 48 1C                JMP      $481C        ; Extended
+4A90  8D BE                   BSR      4A50         ; Relative, to (4A50)
+4A92  8D CE                   BSR      4A62         ; Relative, to (4A62)
+4A94  16                      TAB                   ; Immediate
+4A95  FE A0 02                LDX      $A002        ; Extended
+4A98  09                      DEX                   ; Immediate
+4A99  08                      INX                   ; Immediate
+4A9A  A6 00                   LDAA     $0000        ; Indexed
+4A9C  11                      CBA                   ; Immediate
+4A9D  26 08                   BNE      4AA7         ; Relative, to (4AA7)
+4A9F  FF A0 0D                STX      $A00D        ; Extended
+4AA2  8D 1C                   BSR      4AC0         ; Relative, to (4AC0)
+4AA4  BD 49 16                JSR      $4916        ; Extended
+4AA7  BC A0 04                CPX      $A004        ; Extended
+4AAA  26 ED                   BNE      4A99         ; Relative, to (4A99)
+4AAC  20 DF                   BRA      4A8D         ; Relative, to (4A8D)
+4AAE  86 20                   LDAA    #$0020        ; Immediate
+4AB0  BD 49 FE                JSR      $49FE        ; Extended
+4AB3  5A                      DECB                  ; Immediate
+4AB4  26 F8                   BNE      4AAE         ; Relative, to (4AAE)
+4AB6  39                      RTS                   ; Immediate
+
+4AB7  B7 A0 65                STAA     $A065        ; Extended
+4ABA  CE A0 65                LDX     #$A065        ; Immediate
+4ABD  7E 48 DC                JMP      $48DC        ; Extended
+4AC0  CE 4F 84                LDX     #$4F84        ; Immediate
+4AC3  7E 48 94                JMP      $4894        ; Extended
+4AC6  BD 4A 42                JSR      $4A42        ; Extended
+4AC9  20 1D                   BRA      4AE8         ; Relative, to (4AE8)
+4ACB  BD 4A 42                JSR      $4A42        ; Extended
+4ACE  8D F0                   BSR      4AC0         ; Relative, to (4AC0)
+4AD0  FE A0 08                LDX      $A008        ; Extended
+4AD3  F6 A0 0D                LDAB     $A00D        ; Extended
+4AD6  E7 06                   STAB     $0006        ; Indexed
+4AD8  B6 A0 0E                LDAA     $A00E        ; Extended
+4ADB  A7 07                   STAA     $0007        ; Indexed
+4ADD  7C A0 0F                INC      $A00F        ; Extended
+4AE0  BD 49 4B                JSR      $494B        ; Extended
+4AE3  FE A0 08                LDX      $A008        ; Extended
+4AE6  EE 06                   LDX      $0006        ; Indexed
+4AE8  FF A0 66                STX      $A066        ; Extended
+4AEB  8D D3                   BSR      4AC0         ; Relative, to (4AC0)
+4AED  CE A0 66                LDX     #$A066        ; Immediate
+4AF0  BD 48 E5                JSR      $48E5        ; Extended
+4AF3  CE A0 4D                LDX     #$A04D        ; Immediate
+4AF6  86 05                   LDAA    #$0005        ; Immediate
+4AF8  6F 00                   CLR      $0000        ; Indexed
+4AFA  08                      INX                   ; Immediate
+4AFB  4A                      DECA                  ; Immediate
+4AFC  26 FA                   BNE      4AF8         ; Relative, to (4AF8)
+4AFE  FE A0 66                LDX      $A066        ; Extended
+4B01  E6 00                   LDAB     $0000        ; Indexed
+4B03  BD 48 E7                JSR      $48E7        ; Extended
+4B06  FF A0 66                STX      $A066        ; Extended
+4B09  A6 00                   LDAA     $0000        ; Indexed
+4B0B  B7 A0 63                STAA     $A063        ; Extended
+4B0E  A6 01                   LDAA     $0001        ; Indexed
+4B10  B7 A0 64                STAA     $A064        ; Extended
+4B13  F7 A0 62                STAB     $A062        ; Extended
+4B16  17                      TBA                   ; Immediate
+4B17  BD 4D 14                JSR      $4D14        ; Extended
+4B1A  B6 A0 14                LDAA     $A014        ; Extended
+4B1D  81 2A                   CMPA    #$002A        ; Immediate
+4B1F  26 03                   BNE      4B24         ; Relative, to (4B24)
+4B21  7E 4B E5                JMP      $4BE5        ; Extended
+4B24  B6 A0 62                LDAA     $A062        ; Extended
+4B27  81 8D                   CMPA    #$008D        ; Immediate
+4B29  26 05                   BNE      4B30         ; Relative, to (4B30)
+4B2B  7C A0 4D                INC      $A04D        ; Extended
+4B2E  20 2D                   BRA      4B5D         ; Relative, to (4B5D)
+4B30  84 F0                   ANDA    #$00F0        ; Immediate
+4B32  81 60                   CMPA    #$0060        ; Immediate
+4B34  27 18                   BEQ      4B4E         ; Relative, to (4B4E)
+4B36  81 A0                   CMPA    #$00A0        ; Immediate
+4B38  27 14                   BEQ      4B4E         ; Relative, to (4B4E)
+4B3A  81 E0                   CMPA    #$00E0        ; Immediate
+4B3C  27 10                   BEQ      4B4E         ; Relative, to (4B4E)
+4B3E  81 80                   CMPA    #$0080        ; Immediate
+4B40  27 04                   BEQ      4B46         ; Relative, to (4B46)
+4B42  81 C0                   CMPA    #$00C0        ; Immediate
+4B44  26 17                   BNE      4B5D         ; Relative, to (4B5D)
+4B46  7C A0 4E                INC      $A04E        ; Extended
+4B49  CE 4F 55                LDX     #$4F55        ; Immediate
+4B4C  20 0C                   BRA      4B5A         ; Relative, to (4B5A)
+4B4E  7C A0 4F                INC      $A04F        ; Extended
+4B51  B6 A0 63                LDAA     $A063        ; Extended
+4B54  BD 4A B7                JSR      $4AB7        ; Extended
+4B57  CE 4F 58                LDX     #$4F58        ; Immediate
+4B5A  BD 48 94                JSR      $4894        ; Extended
+4B5D  FE A0 66                LDX      $A066        ; Extended
+4B60  B6 A0 62                LDAA     $A062        ; Extended
+4B63  81 8C                   CMPA    #$008C        ; Immediate
+4B65  27 1D                   BEQ      4B84         ; Relative, to (4B84)
+4B67  81 8E                   CMPA    #$008E        ; Immediate
+4B69  27 19                   BEQ      4B84         ; Relative, to (4B84)
+4B6B  81 CE                   CMPA    #$00CE        ; Immediate
+4B6D  27 15                   BEQ      4B84         ; Relative, to (4B84)
+4B6F  84 F0                   ANDA    #$00F0        ; Immediate
+4B71  81 20                   CMPA    #$0020        ; Immediate
+4B73  26 05                   BNE      4B7A         ; Relative, to (4B7A)
+4B75  7C A0 4D                INC      $A04D        ; Extended
+4B78  20 25                   BRA      4B9F         ; Relative, to (4B9F)
+4B7A  81 60                   CMPA    #$0060        ; Immediate
+4B7C  25 43                   BCS      4BC1         ; Relative, to (4BC1)
+4B7E  84 30                   ANDA    #$0030        ; Immediate
+4B80  81 30                   CMPA    #$0030        ; Immediate
+4B82  26 1B                   BNE      4B9F         ; Relative, to (4B9F)
+4B84  7C A0 51                INC      $A051        ; Extended
+4B87  7D A0 4E                TST      $A04E        ; Extended
+4B8A  26 05                   BNE      4B91         ; Relative, to (4B91)
+4B8C  86 24                   LDAA    #$0024        ; Immediate
+4B8E  BD 49 FE                JSR      $49FE        ; Extended
+4B91  A6 00                   LDAA     $0000        ; Indexed
+4B93  08                      INX                   ; Immediate
+4B94  FF A0 66                STX      $A066        ; Extended
+4B97  BD 4A B7                JSR      $4AB7        ; Extended
+4B9A  FE A0 66                LDX      $A066        ; Extended
+4B9D  20 03                   BRA      4BA2         ; Relative, to (4BA2)
+4B9F  7C A0 50                INC      $A050        ; Extended
+4BA2  A6 00                   LDAA     $0000        ; Indexed
+4BA4  08                      INX                   ; Immediate
+4BA5  FF A0 66                STX      $A066        ; Extended
+4BA8  7D A0 4F                TST      $A04F        ; Extended
+4BAB  26 14                   BNE      4BC1         ; Relative, to (4BC1)
+4BAD  7D A0 51                TST      $A051        ; Extended
+4BB0  26 0C                   BNE      4BBE         ; Relative, to (4BBE)
+4BB2  7D A0 4E                TST      $A04E        ; Extended
+4BB5  26 07                   BNE      4BBE         ; Relative, to (4BBE)
+4BB7  16                      TAB                   ; Immediate
+4BB8  86 24                   LDAA    #$0024        ; Immediate
+4BBA  BD 49 FE                JSR      $49FE        ; Extended
+4BBD  17                      TBA                   ; Immediate
+4BBE  BD 4A B7                JSR      $4AB7        ; Extended
+4BC1  7D A0 4D                TST      $A04D        ; Extended
+4BC4  27 1F                   BEQ      4BE5         ; Relative, to (4BE5)
+4BC6  C6 03                   LDAB    #$0003        ; Immediate
+4BC8  BD 4A AE                JSR      $4AAE        ; Extended
+4BCB  4F                      CLRA                  ; Immediate
+4BCC  F6 A0 63                LDAB     $A063        ; Extended
+4BCF  2C 02                   BGE      4BD3         ; Relative, to (4BD3)
+4BD1  86 FF                   LDAA    #$00FF        ; Immediate
+4BD3  FB A0 67                ADDB     $A067        ; Extended
+4BD6  B9 A0 66                ADCA     $A066        ; Extended
+4BD9  B7 A0 68                STAA     $A068        ; Extended
+4BDC  F7 A0 69                STAB     $A069        ; Extended
+4BDF  CE A0 68                LDX     #$A068        ; Immediate
+4BE2  BD 48 E5                JSR      $48E5        ; Extended
+4BE5  C6 0D                   LDAB    #$000D        ; Immediate
+4BE7  86 01                   LDAA    #$0001        ; Immediate
+4BE9  7D A0 50                TST      $A050        ; Extended
+4BEC  27 19                   BEQ      4C07         ; Relative, to (4C07)
+4BEE  C6 01                   LDAB    #$0001        ; Immediate
+4BF0  7D A0 4D                TST      $A04D        ; Extended
+4BF3  26 0E                   BNE      4C03         ; Relative, to (4C03)
+4BF5  C6 08                   LDAB    #$0008        ; Immediate
+4BF7  7D A0 4E                TST      $A04E        ; Extended
+4BFA  26 07                   BNE      4C03         ; Relative, to (4C03)
+4BFC  7D A0 4F                TST      $A04F        ; Extended
+4BFF  26 02                   BNE      4C03         ; Relative, to (4C03)
+4C01  C6 09                   LDAB    #$0009        ; Immediate
+4C03  86 02                   LDAA    #$0002        ; Immediate
+4C05  20 10                   BRA      4C17         ; Relative, to (4C17)
+4C07  7D A0 51                TST      $A051        ; Extended
+4C0A  27 0B                   BEQ      4C17         ; Relative, to (4C17)
+4C0C  86 03                   LDAA    #$0003        ; Immediate
+4C0E  C6 06                   LDAB    #$0006        ; Immediate
+4C10  7D A0 4E                TST      $A04E        ; Extended
+4C13  27 02                   BEQ      4C17         ; Relative, to (4C17)
+4C15  C6 08                   LDAB    #$0008        ; Immediate
+4C17  36                      PSHA                  ; Immediate
+4C18  BD 4A AE                JSR      $4AAE        ; Extended
+4C1B  33                      PULB                  ; Immediate
+4C1C  CE A0 62                LDX     #$A062        ; Immediate
+4C1F  A6 00                   LDAA     $0000        ; Indexed
+4C21  81 20                   CMPA    #$0020        ; Immediate
+4C23  2F 04                   BLE      4C29         ; Relative, to (4C29)
+4C25  81 60                   CMPA    #$0060        ; Immediate
+4C27  2F 02                   BLE      4C2B         ; Relative, to (4C2B)
+4C29  86 2E                   LDAA    #$002E        ; Immediate
+4C2B  08                      INX                   ; Immediate
+4C2C  BD 49 FE                JSR      $49FE        ; Extended
+4C2F  5A                      DECB                  ; Immediate
+4C30  26 ED                   BNE      4C1F         ; Relative, to (4C1F)
+4C32  BD 49 E7                JSR      $49E7        ; Extended
+4C35  16                      TAB                   ; Immediate
+4C36  BD 48 E9                JSR      $48E9        ; Extended
+4C39  C1 20                   CMPB    #$0020        ; Immediate
+4C3B  27 34                   BEQ      4C71         ; Relative, to (4C71)
+4C3D  FE A0 08                LDX      $A008        ; Extended
+4C40  08                      INX                   ; Immediate
+4C41  C1 43                   CMPB    #$0043        ; Immediate
+4C43  27 1C                   BEQ      4C61         ; Relative, to (4C61)
+4C45  08                      INX                   ; Immediate
+4C46  C1 42                   CMPB    #$0042        ; Immediate
+4C48  27 17                   BEQ      4C61         ; Relative, to (4C61)
+4C4A  08                      INX                   ; Immediate
+4C4B  C1 41                   CMPB    #$0041        ; Immediate
+4C4D  27 12                   BEQ      4C61         ; Relative, to (4C61)
+4C4F  08                      INX                   ; Immediate
+4C50  C1 58                   CMPB    #$0058        ; Immediate
+4C52  27 07                   BEQ      4C5B         ; Relative, to (4C5B)
+4C54  CE A0 08                LDX     #$A008        ; Immediate
+4C57  C1 53                   CMPB    #$0053        ; Immediate
+4C59  26 13                   BNE      4C6E         ; Relative, to (4C6E)
+4C5B  BD 48 72                JSR      $4872        ; Extended
+4C5E  A7 00                   STAA     $0000        ; Indexed
+4C60  08                      INX                   ; Immediate
+4C61  BD 48 72                JSR      $4872        ; Extended
+4C64  A7 00                   STAA     $0000        ; Indexed
+4C66  BD 4A C0                JSR      $4AC0        ; Extended
+4C69  BD 49 4B                JSR      $494B        ; Extended
+4C6C  20 C4                   BRA      4C32         ; Relative, to (4C32)
+4C6E  7E 48 1C                JMP      $481C        ; Extended
+4C71  7D A0 0F                TST      $A00F        ; Extended
+4C74  26 03                   BNE      4C79         ; Relative, to (4C79)
+4C76  7E 4A EB                JMP      $4AEB        ; Extended
+4C79  C6 3F                   LDAB    #$003F        ; Immediate
+4C7B  B6 A0 62                LDAA     $A062        ; Extended
+4C7E  81 8D                   CMPA    #$008D        ; Immediate
+4C80  26 09                   BNE      4C8B         ; Relative, to (4C8B)
+4C82  FE A0 68                LDX      $A068        ; Extended
+4C85  FF A0 66                STX      $A066        ; Extended
+4C88  7F A0 4D                CLR      $A04D        ; Extended
+4C8B  7D A0 4D                TST      $A04D        ; Extended
+4C8E  27 0C                   BEQ      4C9C         ; Relative, to (4C9C)
+4C90  FE A0 68                LDX      $A068        ; Extended
+4C93  A6 00                   LDAA     $0000        ; Indexed
+4C95  B7 A0 6A                STAA     $A06A        ; Extended
+4C98  E7 00                   STAB     $0000        ; Indexed
+4C9A  20 48                   BRA      4CE4         ; Relative, to (4CE4)
+4C9C  81 6E                   CMPA    #$006E        ; Immediate
+4C9E  27 14                   BEQ      4CB4         ; Relative, to (4CB4)
+4CA0  81 AD                   CMPA    #$00AD        ; Immediate
+4CA2  27 10                   BEQ      4CB4         ; Relative, to (4CB4)
+4CA4  81 7E                   CMPA    #$007E        ; Immediate
+4CA6  27 04                   BEQ      4CAC         ; Relative, to (4CAC)
+4CA8  81 BD                   CMPA    #$00BD        ; Immediate
+4CAA  26 1C                   BNE      4CC8         ; Relative, to (4CC8)
+4CAC  FE A0 63                LDX      $A063        ; Extended
+4CAF  FF A0 66                STX      $A066        ; Extended
+4CB2  20 30                   BRA      4CE4         ; Relative, to (4CE4)
+4CB4  FE A0 08                LDX      $A008        ; Extended
+4CB7  A6 05                   LDAA     $0005        ; Indexed
+4CB9  BB A0 63                ADDA     $A063        ; Extended
+4CBC  B7 A0 67                STAA     $A067        ; Extended
+4CBF  A6 04                   LDAA     $0004        ; Indexed
+4CC1  89 00                   ADCA    #$0000        ; Immediate
+4CC3  B7 A0 66                STAA     $A066        ; Extended
+4CC6  20 1C                   BRA      4CE4         ; Relative, to (4CE4)
+4CC8  FE A0 08                LDX      $A008        ; Extended
+4CCB  81 39                   CMPA    #$0039        ; Immediate
+4CCD  26 04                   BNE      4CD3         ; Relative, to (4CD3)
+4CCF  EE 08                   LDX      $0008        ; Indexed
+4CD1  20 06                   BRA      4CD9         ; Relative, to (4CD9)
+4CD3  81 38                   CMPA    #$0038        ; Immediate
+4CD5  26 05                   BNE      4CDC         ; Relative, to (4CDC)
+4CD7  EE 0D                   LDX      $000D        ; Indexed
+4CD9  FF A0 66                STX      $A066        ; Extended
+4CDC  81 3F                   CMPA    #$003F        ; Immediate
+4CDE  27 15                   BEQ      4CF5         ; Relative, to (4CF5)
+4CE0  81 3E                   CMPA    #$003E        ; Immediate
+4CE2  27 11                   BEQ      4CF5         ; Relative, to (4CF5)
+4CE4  FE A0 66                LDX      $A066        ; Extended
+4CE7  A6 00                   LDAA     $0000        ; Indexed
+4CE9  B7 A0 61                STAA     $A061        ; Extended
+4CEC  E7 00                   STAB     $0000        ; Indexed
+4CEE  E1 00                   CMPB     $0000        ; Indexed
+4CF0  26 06                   BNE      4CF8         ; Relative, to (4CF8)
+4CF2  7E 49 12                JMP      $4912        ; Extended
+4CF5  7E 48 5E                JMP      $485E        ; Extended
+4CF8  B6 A0 66                LDAA     $A066        ; Extended
+4CFB  81 E0                   CMPA    #$00E0        ; Immediate
+4CFD  25 F6                   BCS      4CF5         ; Relative, to (4CF5)
+4CFF  FE A0 08                LDX      $A008        ; Extended
+4D02  B6 A0 62                LDAA     $A062        ; Extended
+4D05  81 7E                   CMPA    #$007E        ; Immediate
+4D07  27 C6                   BEQ      4CCF         ; Relative, to (4CCF)
+4D09  81 BD                   CMPA    #$00BD        ; Immediate
+4D0B  26 E8                   BNE      4CF5         ; Relative, to (4CF5)
+4D0D  EE 06                   LDX      $0006        ; Indexed
+4D0F  08                      INX                   ; Immediate
+4D10  08                      INX                   ; Immediate
+4D11  08                      INX                   ; Immediate
+4D12  20 9B                   BRA      4CAF         ; Relative, to (4CAF)
+4D14  81 40                   CMPA    #$0040        ; Immediate
+4D16  24 26                   BCC      4D3E         ; Relative, to (4D3E)
+4D18  BD 4D AC                JSR      $4DAC        ; Extended
+4D1B  B6 A0 62                LDAA     $A062        ; Extended
+4D1E  81 32                   CMPA    #$0032        ; Immediate
+4D20  27 11                   BEQ      4D33         ; Relative, to (4D33)
+4D22  81 36                   CMPA    #$0036        ; Immediate
+4D24  27 0D                   BEQ      4D33         ; Relative, to (4D33)
+4D26  81 33                   CMPA    #$0033        ; Immediate
+4D28  27 0E                   BEQ      4D38         ; Relative, to (4D38)
+4D2A  81 37                   CMPA    #$0037        ; Immediate
+4D2C  27 0A                   BEQ      4D38         ; Relative, to (4D38)
+4D2E  CE 4F 5B                LDX     #$4F5B        ; Immediate
+4D31  20 08                   BRA      4D3B         ; Relative, to (4D3B)
+4D33  CE 4F 5F                LDX     #$4F5F        ; Immediate
+4D36  20 03                   BRA      4D3B         ; Relative, to (4D3B)
+4D38  CE 4F 63                LDX     #$4F63        ; Immediate
+4D3B  7E 48 94                JMP      $4894        ; Extended
+4D3E  81 4E                   CMPA    #$004E        ; Immediate
+4D40  27 04                   BEQ      4D46         ; Relative, to (4D46)
+4D42  81 5E                   CMPA    #$005E        ; Immediate
+4D44  26 03                   BNE      4D49         ; Relative, to (4D49)
+4D46  4F                      CLRA                  ; Immediate
+4D47  20 CF                   BRA      4D18         ; Relative, to (4D18)
+4D49  81 80                   CMPA    #$0080        ; Immediate
+4D4B  24 19                   BCC      4D66         ; Relative, to (4D66)
+4D4D  84 4F                   ANDA    #$004F        ; Immediate
+4D4F  BD 4D AC                JSR      $4DAC        ; Extended
+4D52  B6 A0 14                LDAA     $A014        ; Extended
+4D55  81 2A                   CMPA    #$002A        ; Immediate
+4D57  27 D5                   BEQ      4D2E         ; Relative, to (4D2E)
+4D59  B6 A0 62                LDAA     $A062        ; Extended
+4D5C  81 60                   CMPA    #$0060        ; Immediate
+4D5E  24 CE                   BCC      4D2E         ; Relative, to (4D2E)
+4D60  84 10                   ANDA    #$0010        ; Immediate
+4D62  27 CF                   BEQ      4D33         ; Relative, to (4D33)
+4D64  20 D2                   BRA      4D38         ; Relative, to (4D38)
+4D66  84 3F                   ANDA    #$003F        ; Immediate
+4D68  81 0F                   CMPA    #$000F        ; Immediate
+4D6A  27 DA                   BEQ      4D46         ; Relative, to (4D46)
+4D6C  81 07                   CMPA    #$0007        ; Immediate
+4D6E  27 D6                   BEQ      4D46         ; Relative, to (4D46)
+4D70  84 0F                   ANDA    #$000F        ; Immediate
+4D72  81 03                   CMPA    #$0003        ; Immediate
+4D74  27 D0                   BEQ      4D46         ; Relative, to (4D46)
+4D76  81 0C                   CMPA    #$000C        ; Immediate
+4D78  2C 0E                   BGE      4D88         ; Relative, to (4D88)
+4D7A  8B 50                   ADDA    #$0050        ; Immediate
+4D7C  BD 4D AC                JSR      $4DAC        ; Extended
+4D7F  B6 A0 62                LDAA     $A062        ; Extended
+4D82  84 40                   ANDA    #$0040        ; Immediate
+4D84  27 AD                   BEQ      4D33         ; Relative, to (4D33)
+4D86  20 B0                   BRA      4D38         ; Relative, to (4D38)
+4D88  B6 A0 62                LDAA     $A062        ; Extended
+4D8B  81 8D                   CMPA    #$008D        ; Immediate
+4D8D  26 04                   BNE      4D93         ; Relative, to (4D93)
+4D8F  86 53                   LDAA    #$0053        ; Immediate
+4D91  20 85                   BRA      4D18         ; Relative, to (4D18)
+4D93  81 C0                   CMPA    #$00C0        ; Immediate
+4D95  24 0A                   BCC      4DA1         ; Relative, to (4DA1)
+4D97  81 9D                   CMPA    #$009D        ; Immediate
+4D99  27 AB                   BEQ      4D46         ; Relative, to (4D46)
+4D9B  84 0F                   ANDA    #$000F        ; Immediate
+4D9D  8B 50                   ADDA    #$0050        ; Immediate
+4D9F  20 08                   BRA      4DA9         ; Relative, to (4DA9)
+4DA1  84 0F                   ANDA    #$000F        ; Immediate
+4DA3  8B 52                   ADDA    #$0052        ; Immediate
+4DA5  81 60                   CMPA    #$0060        ; Immediate
+4DA7  2D 9D                   BLT      4D46         ; Relative, to (4D46)
+4DA9  7E 4D 18                JMP      $4D18        ; Extended
+4DAC  5F                      CLRB                  ; Immediate
+4DAD  B7 A0 14                STAA     $A014        ; Extended
+4DB0  48                      ASLA                  ; Immediate
+4DB1  BB A0 14                ADDA     $A014        ; Extended
+4DB4  C9 00                   ADCB    #$0000        ; Immediate
+4DB6  CE 4E 2F                LDX     #$4E2F        ; Immediate
+4DB9  FF A0 10                STX      $A010        ; Extended
+4DBC  BB A0 11                ADDA     $A011        ; Extended
+4DBF  F9 A0 10                ADCB     $A010        ; Extended
+4DC2  F7 A0 10                STAB     $A010        ; Extended
+4DC5  B7 A0 11                STAA     $A011        ; Extended
+4DC8  FE A0 10                LDX      $A010        ; Extended
+4DCB  A6 00                   LDAA     $0000        ; Indexed
+4DCD  B7 A0 14                STAA     $A014        ; Extended
+4DD0  8D 06                   BSR      4DD8         ; Relative, to (4DD8)
+4DD2  A6 01                   LDAA     $0001        ; Indexed
+4DD4  8D 02                   BSR      4DD8         ; Relative, to (4DD8)
+4DD6  A6 02                   LDAA     $0002        ; Indexed
+4DD8  7E 49 FE                JMP      $49FE        ; Extended
+4DDB  BD 4A 42                JSR      $4A42        ; Extended
+4DDE  86 08                   LDAA    #$0008        ; Immediate
+4DE0  B7 A0 6D                STAA     $A06D        ; Extended
+4DE3  BD 4A C0                JSR      $4AC0        ; Extended
+4DE6  BD 49 16                JSR      $4916        ; Extended
+4DE9  C6 10                   LDAB    #$0010        ; Immediate
+4DEB  BD 48 E7                JSR      $48E7        ; Extended
+4DEE  5A                      DECB                  ; Immediate
+4DEF  C5 03                   BITB    #$0003        ; Immediate
+4DF1  26 05                   BNE      4DF8         ; Relative, to (4DF8)
+4DF3  BD 48 E9                JSR      $48E9        ; Extended
+4DF6  C1 00                   CMPB    #$0000        ; Immediate
+4DF8  26 F1                   BNE      4DEB         ; Relative, to (4DEB)
+4DFA  BD 4A C0                JSR      $4AC0        ; Extended
+4DFD  C6 05                   LDAB    #$0005        ; Immediate
+4DFF  BD 4A AE                JSR      $4AAE        ; Extended
+4E02  FE A0 0D                LDX      $A00D        ; Extended
+4E05  C6 10                   LDAB    #$0010        ; Immediate
+4E07  A6 00                   LDAA     $0000        ; Indexed
+4E09  81 20                   CMPA    #$0020        ; Immediate
+4E0B  25 04                   BCS      4E11         ; Relative, to (4E11)
+4E0D  81 5F                   CMPA    #$005F        ; Immediate
+4E0F  25 02                   BCS      4E13         ; Relative, to (4E13)
+4E11  86 2E                   LDAA    #$002E        ; Immediate
+4E13  8D C3                   BSR      4DD8         ; Relative, to (4DD8)
+4E15  08                      INX                   ; Immediate
+4E16  5A                      DECB                  ; Immediate
+4E17  26 EE                   BNE      4E07         ; Relative, to (4E07)
+4E19  FF A0 0D                STX      $A00D        ; Extended
+4E1C  7A A0 6D                DEC      $A06D        ; Extended
+4E1F  26 C2                   BNE      4DE3         ; Relative, to (4DE3)
+4E21  BD 49 E7                JSR      $49E7        ; Extended
+4E24  81 20                   CMPA    #$0020        ; Immediate
+4E26  27 B6                   BEQ      4DDE         ; Relative, to (4DDE)
+4E28  81 56                   CMPA    #$0056        ; Immediate
+4E2A  27 AF                   BEQ      4DDB         ; Relative, to (4DDB)
+4E2C  7E 48 1C                JMP      $481C        ; Extended 
+
+.DATA
+4E2F  2A 2A
+      *  *
+.DATA
+4E31  2A 4E 4F 50 4E 4F 50 2A 2A 2A 2A 2A 2A 2A 2A 2A 
+      *  N  O  P  N  O  P  *  *  *  *  *  *  *  *  *  
+
+.DATA
+4E41  54 41 50 54 50 41 49 4E 58 44 45 58 43 4C 56 53 
+      T  A  P  T  P  A  I  N  X  D  E  X  C  L  V  S  
+
+.DATA
+4E51  45 56 43 4C 43 53 45 43 43 4C 49 53 45 49 53 42 
+      E  V  C  L  C  S  E  C  C  L  I  S  E  I  S  B  
+
+.DATA
+4E61  41 43 42 41 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 
+      A  C  B  A  *  *  *  *  *  *  *  *  *  *  *  *  
+
+.DATA
+4E71  54 41 42 54 42 41 2A 2A 2A 44 41 41 2A 2A 2A 41 
+      T  A  B  T  B  A  *  *  *  D  A  A  *  *  *  A  
+
+.DATA
+4E81  42 41 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 42 52 
+      B  A  *  *  *  *  *  *  *  *  *  *  *  *  B  R  
+
+.DATA
+4E91  41 2A 2A 2A 42 48 49 42 4C 53 42 43 43 42 43 53 
+      A  *  *  *  B  H  I  B  L  S  B  C  C  B  C  S  
+
+.DATA
+4EA1  42 4E 45 42 45 51 42 56 43 42 56 53 42 50 4C 42 
+      B  N  E  B  E  Q  B  V  C  B  V  S  B  P  L  B  
+
+.DATA
+4EB1  4D 49 42 47 45 42 4C 54 42 47 54 42 4C 45 54 53 
+      M  I  B  G  E  B  L  T  B  G  T  B  L  E  T  S  
+
+.DATA
+4EC1  58 49 4E 53 50 55 4C 50 55 4C 44 45 53 54 58 53 
+      X  I  N  S  P  U  L  P  U  L  D  E  S  T  X  S  
+
+.DATA
+4ED1  50 53 48 50 53 48 2A 2A 2A 52 54 53 2A 2A 2A 52 
+      P  S  H  P  S  H  *  *  *  R  T  S  *  *  *  R  
+
+.DATA
+4EE1  54 49 2A 2A 2A 2A 2A 2A 57 41 49 53 57 49 4E 45 
+      T  I  *  *  *  *  *  *  W  A  I  S  W  I  N  E  
+
+.DATA
+4EF1  47 2A 2A 2A 2A 2A 2A 43 4F 4D 4C 53 52 2A 2A 2A 
+      G  *  *  *  *  *  *  C  O  M  L  S  R  *  *  *  
+
+.DATA
+4F01  52 4F 52 41 53 52 41 53 4C 52 4F 4C 44 45 43 2A 
+      R  O  R  A  S  R  A  S  L  R  O  L  D  E  C  *  
+
+.DATA
+4F11  2A 2A 49 4E 43 54 53 54 4A 4D 50 43 4C 52 53 55 
+      *  *  I  N  C  T  S  T  J  M  P  C  L  R  S  U  
+
+.DATA
+4F21  42 43 4D 50 53 42 43 42 53 52 41 4E 44 42 49 54 
+      B  C  M  P  S  B  C  B  S  R  A  N  D  B  I  T  
+
+.DATA
+4F31  4C 44 41 53 54 41 45 4F 52 41 44 43 4F 52 41 41 
+      L  D  A  S  T  A  E  O  R  A  D  C  O  R  A  A  
+
+.DATA
+4F41  44 44 43 50 58 4A 53 52 4C 44 53 53 54 53 4C 44 
+      D  D  C  P  X  J  S  R  L  D  S  S  T  S  L  D  
+
+.DATA
+4F51  58 53 54 58 23 24 04 2C 58 04 20 20 20 04 20 41 
+      X  S  T  X  #  $  .  ,  X  .  .  .  .  .  .  A  
+
+.DATA
+4F61  20 04 20 42 20 04 0D 0A 15 13 3E 04 20 42 3D 04 
+      .  .  .  B  .  .  .  .  .  .  >  .  .  B  =  .  
+
+.DATA
+4F71  41 3D 04 58 3D 04 53 3D 04 50 43 3D 04 48 49 4E 
+      A  =  .  X  =  .  S  =  .  P  C  =  .  H  I  N  
+
+.DATA
+4F81  5A 56 43 0D 0A 15 04 0D 0A 42 4B 41 44 44 52 20 
+      Z  V  C  .  .  .  .  .  .  B  K  A  D  D  R  .  
+
+.DATA
+4F91  04 0D 0A 46 52 4F 4D 20 41 44 44 52 20 04 0D 0A 
+      .  .  .  F  R  O  M  .  A  D  D  R  .  .  .  .  
+
+.DATA
+4FA1  54 48 52 55 20 41 44 44 52 20 04 54 4F 20 41 44 
+      T  H  R  U  .  A  D  D  R  .  .  T  O  .  A  D  
+
+.DATA
+4FB1  44 52 20 04 56 41 4C 55 45 20 04 4D 4A 6B 45 48 
+      D  R  .  .  V  A  L  U  E  .  .  M  J  k  E  H  
+
+.DATA
+4FC1  9B 47 49 12 52 49 4B 54 4A CB 40 4A 1D 48 49 CD 
+      .  G  I  .  R  I  K  T  J  .  @  J  .  H  I  .  
+
+.DATA
+4FD1  56 4D DB 49 4A 30 4A 4A 13 46 4A 90 51 80 20 44 
+      V  M  .  I  J  0  J  J  .  F  J  .  Q  .  .  D  
+
+.DATA
+4FE1  4A C6 4B 4A DD 31 48 FE 32 48 ED 26 72 83 2A E0 
+      J  .  K  J  .  1  H  .  2  H  .  &  r  .  *  .  
+
+.DATA
+4FF1  E3 4F 49 CC 4E 49 CE 48 4F 48 59 48 54 48 00 
+      .  O  I  .  N  I  .  H  O  H  Y  H  T  H  .     
+
+                    END
